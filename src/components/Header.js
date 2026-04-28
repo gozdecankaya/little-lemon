@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import logo from '../assets/images/logo.svg';
 import hamburgerIcon from "../assets/images/hamburger.svg";
 import Nav from './Nav';
 
@@ -8,7 +7,7 @@ const Header = () => {
   return (
     <header className="layout">
       <div className="container">
-        <img src={logo} alt="logo" width={200} />
+        <img src="/logo.svg" alt="logo" width={200} />
         <button className="hamburger" onClick={() => setIsOpen(!isOpen)}>
           <img src={hamburgerIcon} alt='menu icon' />
         </button>
