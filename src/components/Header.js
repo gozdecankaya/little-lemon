@@ -1,15 +1,17 @@
 import { useState } from 'react';
-import hamburgerIcon from "../assets/images/hamburger.svg";
+import hamburgerIcon from '../assets/images/hamburger.svg';
 import Nav from './Nav';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <header className="layout">
+    <header className="layout header-section">
       <div className="container">
-        <img src="/logo.svg" alt="logo" width={200} />
+        <div className="logo">
+          <img src="/logo.svg" alt="Little Lemon" width={200} />
+        </div>
         <button className="hamburger" onClick={() => setIsOpen(!isOpen)}>
-          <img src={hamburgerIcon} alt='menu icon' />
+          <img src={hamburgerIcon} alt="menu icon" />
         </button>
         <Nav isOpen={isOpen} />
       </div>
