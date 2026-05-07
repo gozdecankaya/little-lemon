@@ -40,7 +40,7 @@ const Specials = () => {
 
         <div className="specials-grid">
           {specialsData.map((item) => (
-            <div id={item.id} className="special-card">
+            <div key={item.id} className="special-card">
               <img src={item.image} alt={item.title} />
               <div className="card-content">
                 <div className="card-title">
