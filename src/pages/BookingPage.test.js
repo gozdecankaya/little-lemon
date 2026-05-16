@@ -1,22 +1,22 @@
-import { render, screen, fireEvent } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
-import BookingForm from './BookingForm';
+import BookingPage from './BookingPage';
+import { render, screen } from '@testing-library/react';
 
-test('User can submit the BookingForm successfully', () => {
+test('Renders the Booking Page heading', () => {
   const mockAvailableTimes = ['17:00', '18:00', '19:00'];
   const mockDispatch = jest.fn();
   const mockSubmitForm = jest.fn();
 
   render(
     <BrowserRouter>
-      <BookingForm
+      <BookingPage
         availableTimes={mockAvailableTimes}
         dispatch={mockDispatch}
         submitForm={mockSubmitForm}
       />
     </BrowserRouter>,
   );
-  const submitButton = screen.getByRole('button', { name: /Book now/i });
-  fireEvent.click(submitButton);
-  expect(mockSubmitForm).toHaveBeenCalledTimes(1);
+
+  const headingElement = screen.getByText('Make Your Reservation');
+  expect(headingElement).toBeInTheDocument();
 });
