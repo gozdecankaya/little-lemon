@@ -1,14 +1,19 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import Home from '../pages/Home';
 import BookingPage from '../pages/BookingPage';
 import { useReducer, useState } from 'react';
 
-const initializeTimes = () => {
+export const initializeTimes = () => {
   return ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
 };
 
-const updateTimes = (s, a) => {
-  return s;
+export const updateTimes = (state, action) => {
+  switch (action.type) {
+    case 'UPDATE_TIMES':
+      return state;
+    default:
+      return state;
+  }
 };
 
 const Main = () => {
@@ -17,6 +22,11 @@ const Main = () => {
     [],
     initializeTimes,
   );
+  const navigate = useNavigate();
+
+  const submitForm = (formData) => {
+    navigate('/confirmed');
+  }
 
   return (
     <main>
@@ -28,6 +38,7 @@ const Main = () => {
             <BookingPage
               availableTimes={availableTimes}
               dispatch={dispatch}
+              submitForm={submitForm}
             />
           }
         />

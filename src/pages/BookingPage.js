@@ -1,7 +1,7 @@
 import BookingForm from '../components/BookingForm';
 import img from '../assets/images/restaurant.jpg';
 
-const BookingPage = ({ availableTimes, dispatch }) => {
+const BookingPage = ({ availableTimes, dispatch, submitForm }) => {
   return (
     <div className="layout">
       <div className="container booking-container">
@@ -13,6 +13,7 @@ const BookingPage = ({ availableTimes, dispatch }) => {
           <BookingForm
             availableTimes={availableTimes}
             dispatch={dispatch}
+            submitForm={submitForm}
           />
         </div>
       </div>
