@@ -2,21 +2,25 @@ import { Route, Routes, useNavigate } from 'react-router-dom';
 import Home from '../pages/Home';
 import BookingPage from '../pages/BookingPage';
 import { useReducer, useState } from 'react';
+import {fetchAPI, submitAPI } from '../api';
+import ConfirmedBooking from '../pages/ConfirmedBooking';
 
 export const initializeTimes = () => {
-  return ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
+  const today = new Date().toISOString().split('T')[0];
+  return fetchAPI(today);
 };
 
 export const updateTimes = (state, action) => {
   switch (action.type) {
     case 'UPDATE_TIMES':
-      return state;
+        return fetchAPI(action.date);
     default:
       return state;
   }
 };
 
 const Main = () => {
+  const [bookingData, setBookingData] = useState([]);
   const [availableTimes, dispatch] = useReducer(
     updateTimes,
     [],
@@ -25,8 +29,12 @@ const Main = () => {
   const navigate = useNavigate();
 
   const submitForm = (formData) => {
-    navigate('/confirmed');
-  }
+      const isSubmitted = submitAPI(formData);
+      if (isSubmitted) {
+        setBookingData([...bookingData, formData]);
+        navigate('/confirmed');
+      }
+  };
 
   return (
     <main>
@@ -42,6 +50,7 @@ const Main = () => {
             />
           }
         />
+        <Route path="/confirmed" element={<ConfirmedBooking bookingData={bookingData} />} />
       </Routes>
     </main>
   );

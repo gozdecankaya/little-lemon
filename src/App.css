@@ -551,3 +551,72 @@ body {
 .booking-form input[type="submit"]:hover {
   background-color: #d1b100;
 }
+
+.bookings-layout-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: 'Karla', sans-serif;
+}
+
+.bookings-table-card {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    padding: 24px;
+}
+
+.bookings-title {
+    color: #495E57;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    border-bottom: 3px solid #F4CE14;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.bookings-responsive-wrapper {
+    overflow-x: auto;
+}
+
+.bookings-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+.bookings-table th {
+    background-color: #495E57;
+    color: #EDEFEE;
+    padding: 14px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.bookings-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #EDEFEE;
+    color: #333333;
+    font-size: 15px;
+}
+
+.bookings-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.bookings-table tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+.bookings-badge {
+    background-color: #F4CE14;
+    color: #495E57;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 13px;
+    display: inline-block;
+}
