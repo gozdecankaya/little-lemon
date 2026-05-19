@@ -14,7 +14,9 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    submitForm({ date, time, guests, occasion });
+    const reservationDate = { date, time, guests, occasion};
+    localStorage.setItem("bookings", JSON.stringify(reservationDate));
+    submitForm(reservationDate);
   };
 
   return (
